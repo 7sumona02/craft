@@ -17,10 +17,10 @@ const page = () => {
       <div onClick={() => setIsOpen(!isOpen)} className='bg-black px-5 py-3 rounded-xl cursor-pointer font-medium'>Purchase Now</div>
 
       <AnimatePresence>
-        {isOpen && (<motion.div initial={{opacity:0}} animate={{opacity:1}} className='fixed z-10 h-full w-full inset-0 backdrop-blur-sm bg-/30'></motion.div>)}
+        {isOpen && (<motion.div key='overlay' initial={{opacity:0}} animate={{opacity:1}} className='fixed z-10 h-full w-full inset-0 backdrop-blur-sm bg-/30'></motion.div>)}
         {isOpen && (
-          <div className='fixed z-20 inset-0 flex items-center justify-center'>
-          <motion.div initial={{opacity:0, scale: 0.9, filter: 'blur(10px)'}} animate={{opacity:1, scale: 1, filter: 'blur(0px)'}} exit={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }} transition={{duration: 0.25}} className='w-md bg-white rounded-3xl h-fit'>
+          <div key='modal' className='fixed z-20 inset-0 flex items-center justify-center'>
+          <motion.div initial={{opacity:0, scale: 0.9, filter: 'blur(10px)'}} animate={{opacity:1, scale: 1, filter: 'blur(0px)'}} exit={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }} transition={{duration: 0.3}} className='w-md bg-white rounded-3xl h-fit'>
             <div className='flex flex-col space-y-4 p-5'>
               <div className='w-full flex justify-end'><div onClick={() => setIsOpen(!isOpen)} className='bg-neutral-200/50 rounded-xl p-2.5'><XIcon className='size-5 text-black cursor-pointer' /></div></div>
               <div className='flex flex-col items-center space-y-3 justify-center text-center'>
