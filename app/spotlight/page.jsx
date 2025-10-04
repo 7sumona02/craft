@@ -1,6 +1,6 @@
 "use client"
 import { XIcon } from "lucide-react"
-import React, { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { BsFiletypeJsx, BsFiletypeTsx } from "react-icons/bs"
 import { FaReact } from "react-icons/fa"
 
