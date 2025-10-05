@@ -1,0 +1,57 @@
+///
+/// Radial Engraving Photo Effect
+///
+/// 1. Line thickness: smaller lines give a sketchier look, like wall
+///    street journal hedcuts. thicker gives a more woodcut look.
+/// 2. Line color: amplifies the photo contrast. Too dark means no pure
+///    whites, too light blows out the photo.
+/// 3. Line contrast: creates the engraving look by converting grayscale lines
+///    (and the photo overlay) to pure black or white.
+/// 4. Photo brightness: can tune the image toward white or black.
+/// 5. Photo contrast: controls how "dramatic" the contrast between lights and
+///    darks is. This engraving technique rewards bold contrast.
+/// 6. Photo blur: controls how "clean" the engraving lines are.
+/// 7. Photo blend mode: Try hard-light, soft-light, screen, and overlay.
+///.   Overlay is the most "natural" but makes it hard to get areas of white
+///    with no lines. "hard light" emphasizes contrast.
+///
+
+$line-thickness: 0.25em;  // 1
+$line-color: #333;       // 2
+$line-contrast: 500%;    // 3
+$photo-brightness: 90%;  // 4
+$photo-contrast: 150%;   // 5
+$photo-blur: 3px;        // 6
+$blend-mode: hard-light; // 7
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  background: repeating-radial-gradient(
+    circle at 0 -25%,
+    #fff,
+    $line-color ($line-thickness / 2),
+    #fff $line-thickness
+  );
+  filter: contrast($line-contrast);
+}
+
+.canvas img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  mix-blend-mode: $blend-mode;
+  filter:
+    grayscale(1) 
+    brightness($photo-brightness) 
+    contrast($photo-contrast) 
+    blur($photo-blur);
+}
