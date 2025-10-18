@@ -49,7 +49,7 @@ const page = () => {
             )} 
             </AnimatePresence>
 
-            <motion.div layoutId='modal' initial={{ opacity: 0}} animate={{ opacity: 1 }} transition={{ type: 'spring', stiffness: 400, damping: 35 }} className='w-32 px-4 py-2 bg-black text-white fixed top-4 left-4 rounded-lg cursor-pointer'>
+          <motion.div layoutId='modal' initial={{ opacity: 0}} animate={{ opacity: 1 }} transition={{ type: 'spring', stiffness: 400, damping: 35 }} className='w-32 px-4 py-2 bg-black text-white fixed top-4 left-4 rounded-lg cursor-pointer'>
                 <motion.div layoutId='menu-title' className='menu-title flex justify-between items-center'>
                     <motion.div layoutId='1' onClick={() => setCurrent(true)} className='font-medium cursor-pointer text-sm'>Menu</motion.div>
                     <motion.div layoutId='2'><PlusIcon className='size-4' /></motion.div>
